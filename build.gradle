@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+// The Maven plugin is only required if your package is used as a library.
+apply plugin: 'maven'
+
+// The Application plugin and mainClassName attribute are only required if
+// your package is used as a binary.
+apply plugin: 'application'
+mainClassName = 'org.ros.RosRun'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+      url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+  }
+}
+
+version = '0.2.1'
+group = 'ros.my_stack'
+
+dependencies {
+  compile 'org.ros.rosjava_core:rosjava:0.2.1'
+  
+}
